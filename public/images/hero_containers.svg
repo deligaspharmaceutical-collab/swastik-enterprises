@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <!-- Definitions for gradients and shadows -->
+  <defs>
+    <!-- Background grid/glow -->
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF3E0" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- IBC container shading -->
+    <linearGradient id="ibc-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5F5F5" />
+      <stop offset="70%" stop-color="#E0E0E0" />
+      <stop offset="100%" stop-color="#BDBDBD" />
+    </linearGradient>
+    
+    <!-- Steel barrel shading (Black) -->
+    <linearGradient id="barrel-body" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#333333" />
+      <stop offset="25%" stop-color="#1A1A1A" />
+      <stop offset="60%" stop-color="#4F4F4F" />
+      <stop offset="85%" stop-color="#111111" />
+      <stop offset="100%" stop-color="#222222" />
+    </linearGradient>
+
+    <!-- Bucket shading (White/Gray) -->
+    <linearGradient id="bucket-body" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="60%" stop-color="#ECEFF1" />
+      <stop offset="100%" stop-color="#CFD8DC" />
+    </linearGradient>
+
+    <!-- Orange Label Gradient -->
+    <linearGradient id="orange-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7043" />
+      <stop offset="100%" stop-color="#F4511E" />
+    </linearGradient>
+
+    <!-- Shadow filter for 3D feel -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12" />
+      <feOffset dx="0" dy="25" />
+      <feComponentTransfer><feFuncA type="linear" slope="0.15"/></feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Ambient background glow -->
+  <circle cx="450" cy="300" r="350" fill="url(#bg-glow)" />
+
+  <!-- Platform/Floor shadow -->
+  <ellipse cx="400" cy="510" rx="350" ry="45" fill="#E0E0E0" opacity="0.6" />
+  
+  <!-- Group with soft shadow -->
+  <g filter="url(#soft-shadow)">
+    
+    <!-- 1. BACK: IBC Tote Container (Water tank in metal cage) -->
+    <g transform="translate(180, 80)">
+      <!-- Pallet Base (Wood/Metal platform) -->
+      <path d="M 10,360 L 310,360 L 310,380 L 10,380 Z" fill="#757575" />
+      <path d="M 25,380 L 295,380 L 280,400 L 40,400 Z" fill="#424242" />
+      <rect x="50" y="380" width="30" height="20" fill="#212121" />
+      <rect x="145" y="380" width="30" height="20" fill="#212121" />
+      <rect x="240" y="380" width="30" height="20" fill="#212121" />
+      
+      <!-- White Plastic Tank inside -->
+      <rect x="25" y="60" width="270" height="300" rx="40" ry="40" fill="url(#ibc-body)" />
+      <!-- Tank Top Cap -->
+      <ellipse cx="160" cy="55" rx="35" ry="12" fill="#E64A19" />
+      <rect x="145" y="45" width="30" height="10" fill="#D84315" />
+      
+      <!-- Caged Grid lines (Front and side overlay) -->
+      <!-- Vertical Bars -->
+      <rect x="55" y="60" width="6" height="300" fill="#9E9E9E" rx="3" />
+      <rect x="105" y="60" width="6" height="300" fill="#BDBDBD" rx="3" />
+      <rect x="157" y="60" width="6" height="300" fill="#9E9E9E" rx="3" />
+      <rect x="210" y="60" width="6" height="300" fill="#BDBDBD" rx="3" />
+      <rect x="260" y="60" width="6" height="300" fill="#9E9E9E" rx="3" />
+      <!-- Horizontal Bars -->
+      <rect x="25" y="90" width="270" height="6" fill="#BDBDBD" rx="3" />
+      <rect x="25" y="145" width="270" height="6" fill="#9E9E9E" rx="3" />
+      <rect x="25" y="200" width="270" height="6" fill="#BDBDBD" rx="3" />
+      <rect x="25" y="255" width="270" height="6" fill="#9E9E9E" rx="3" />
+      <rect x="25" y="310" width="270" height="6" fill="#BDBDBD" rx="3" />
+
+      <!-- Label Plate on IBC -->
+      <rect x="80" y="160" width="80" height="60" rx="5" fill="#FFFFFF" stroke="#9E9E9E" stroke-width="2" />
+      <path d="M 90,175 L 115,175 M 90,185 L 150,185 M 90,195 L 140,195 M 90,205 L 130,205" stroke="#E64A19" stroke-width="3" stroke-linecap="round" />
+    </g>
+
+    <!-- 2. MIDDLE-LEFT: Black Steel Drum (Barrel) -->
+    <g transform="translate(420, 160)">
+      <!-- Main Cylinder body -->
+      <path d="M 10,80 L 190,80 L 190,360 A 90,20 0 0,1 10,360 Z" fill="url(#barrel-body)" />
+      <!-- Lid / Top -->
+      <ellipse cx="100" cy="80" rx="90" ry="18" fill="#1A1A1A" stroke="#4F4F4F" stroke-width="2" />
+      <ellipse cx="100" cy="80" rx="80" ry="15" fill="#2E2E2E" />
+      <!-- Top Bung caps -->
+      <circle cx="60" cy="80" r="8" fill="#4F4F4F" />
+      <circle cx="140" cy="78" r="5" fill="#4F4F4F" />
+
+      <!-- Barrel Metal Ridges (Ribs) -->
+      <!-- Upper Rib -->
+      <path d="M 9,150 A 91,15 0 0,0 191,150" fill="none" stroke="#222222" stroke-width="8" />
+      <path d="M 9,150 A 91,15 0 0,0 191,150" fill="none" stroke="#555555" stroke-width="3" />
+      <!-- Lower Rib -->
+      <path d="M 9,270 A 91,15 0 0,0 191,270" fill="none" stroke="#222222" stroke-width="8" />
+      <path d="M 9,270 A 91,15 0 0,0 191,270" fill="none" stroke="#555555" stroke-width="3" />
+
+      <!-- Bottom Edge -->
+      <path d="M 10,360 A 90,20 0 0,0 190,360" fill="none" stroke="#1A1A1A" stroke-width="4" />
+
+      <!-- Swastik Logo Label on Black Barrel -->
+      <g transform="translate(65, 175) scale(0.9)">
+        <!-- Small Stylized Swastik Symbol -->
+        <g fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round">
+          <path d="M 40,10 L 40,32 A 4,4 0 0,1 36,36 L 15,36" />
+          <path d="M 65,36 L 44,36 A 4,4 0 0,1 40,40 L 40,62" />
+          <path d="M 40,62 L 40,40 A 4,4 0 0,1 44,36 L 65,36" transform="rotate(180, 40, 36)" />
+          <path d="M 15,36 L 36,36 A 4,4 0 0,1 40,32 L 40,10" transform="rotate(180, 40, 36)" />
+        </g>
+        <!-- Dots -->
+        <circle cx="28" cy="24" r="3" fill="#FFFFFF" />
+        <circle cx="52" cy="24" r="3" fill="#FFFFFF" />
+        <circle cx="28" cy="48" r="3" fill="#FFFFFF" />
+        <circle cx="52" cy="48" r="3" fill="#FFFFFF" />
+        
+        <!-- Text -->
+        <text x="40" y="82" font-family="'Outfit', sans-serif" font-weight="700" font-size="10" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">SWASTIK</text>
+        <text x="40" y="92" font-family="'Outfit', sans-serif" font-weight="500" font-size="6" fill="#CCCCCC" text-anchor="middle" letter-spacing="1.5">ENTERPRISES</text>
+      </g>
+    </g>
+
+    <!-- 3. FOREGROUND-RIGHT: White Paint Bucket/Pail -->
+    <g transform="translate(560, 270)">
+      <!-- Bucket Body -->
+      <path d="M 20,80 L 130,80 L 115,240 A 48,12 0 0,1 35,240 Z" fill="url(#bucket-body)" />
+      <!-- Lid -->
+      <ellipse cx="75" cy="80" rx="56" ry="12" fill="#E64A19" />
+      <ellipse cx="75" cy="77" rx="58" ry="10" fill="#FF5722" />
+      <ellipse cx="75" cy="74" rx="58" ry="8" fill="#FF7043" />
+      
+      <!-- Handle attachments -->
+      <circle cx="16" cy="95" r="5" fill="#B0BEC5" />
+      <circle cx="134" cy="95" r="5" fill="#B0BEC5" />
+      <!-- Steel wire handle swinging down/up -->
+      <path d="M 16,95 A 70,70 0 0,1 134,95" fill="none" stroke="#90A4AE" stroke-width="3" />
+      <!-- Plastic grip on handle -->
+      <path d="M 55,160 A 70,70 0 0,1 95,160" fill="none" stroke="#FF5722" stroke-width="6" stroke-linecap="round" />
+
+      <!-- Orange label wrapper -->
+      <path d="M 23,120 L 127,120 L 121,200 L 29,200 Z" fill="url(#orange-grad)" opacity="0.95" />
+      
+      <!-- Label Details -->
+      <g transform="translate(50, 130) scale(0.6)">
+        <g fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round">
+          <path d="M 40,10 L 40,32 A 4,4 0 0,1 36,36 L 15,36" />
+          <path d="M 65,36 L 44,36 A 4,4 0 0,1 40,40 L 40,62" />
+        </g>
+        <text x="40" y="80" font-family="'Outfit', sans-serif" font-weight="700" font-size="14" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">SWASTIK</text>
+        <text x="40" y="94" font-family="'Outfit', sans-serif" font-weight="500" font-size="8" fill="#FFE0B2" text-anchor="middle" letter-spacing="1">ENTERPRISES</text>
+      </g>
+    </g>
+
+    <!-- 4. FOREGROUND-FAR-RIGHT: White Jerrycan Container -->
+    <g transform="translate(710, 310)">
+      <!-- Container Body -->
+      <rect x="10" y="60" width="70" height="150" rx="12" ry="12" fill="url(#bucket-body)" />
+      <!-- Cap (Orange) -->
+      <rect x="25" y="45" width="20" height="15" rx="2" fill="#E64A19" />
+      <ellipse cx="35" cy="45" rx="10" ry="3" fill="#FF5722" />
+      <!-- Handle -->
+      <path d="M 50,60 L 50,48 A 6,6 0 0,0 44,42 L 30,42" fill="none" stroke="#CFD8DC" stroke-width="8" stroke-linecap="round" />
+
+      <!-- Orange Logo Graphic on container side -->
+      <circle cx="45" cy="120" r="22" fill="url(#orange-grad)" />
+      <!-- Abstract mini white symbol in circle -->
+      <path d="M 45,108 L 45,132 M 33,120 L 57,120" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+    </g>
+
+  </g>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F9FAFB" />
+      <stop offset="100%" stop-color="#F3F4F6" />
+    </linearGradient>
+    <linearGradient id="tank-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F9FAFB" />
+      <stop offset="70%" stop-color="#ECEFF1" />
+      <stop offset="100%" stop-color="#CFD8DC" />
+    </linearGradient>
+  </defs>
+
+  <rect width="300" height="300" rx="16" fill="url(#bg-grad)" />
+
+  <!-- Shadow -->
+  <ellipse cx="150" cy="245" rx="75" ry="12" fill="#E5E7EB" />
+
+  <!-- IBC Tote -->
+  <g transform="translate(65, 45)">
+    <!-- Base Pallet -->
+    <rect x="10" y="175" width="150" height="10" rx="2" fill="#78909C" />
+    <rect x="25" y="185" width="120" height="10" fill="#455A64" />
+    
+    <!-- White Tank Body -->
+    <rect x="18" y="45" width="134" height="130" rx="20" ry="20" fill="url(#tank-body)" />
+    <!-- Lid Cap -->
+    <ellipse cx="85" cy="42" rx="18" ry="6" fill="#D84315" />
+    <rect x="77" y="38" width="16" height="5" fill="#FF5722" />
+
+    <!-- Cage Wires -->
+    <!-- Verticals -->
+    <rect x="35" y="45" width="3" height="130" fill="#B0BEC5" rx="1" />
+    <rect x="60" y="45" width="3" height="130" fill="#CFD8DC" rx="1" />
+    <rect x="85" y="45" width="3" height="130" fill="#90A4AE" rx="1" />
+    <rect x="110" y="45" width="3" height="130" fill="#CFD8DC" rx="1" />
+    <rect x="135" y="45" width="3" height="130" fill="#B0BEC5" rx="1" />
+    <!-- Horizontals -->
+    <rect x="18" y="60" width="134" height="3" fill="#B0BEC5" rx="15" />
+    <rect x="18" y="85" width="134" height="3" fill="#90A4AE" rx="15" />
+    <rect x="18" y="110" width="134" height="3" fill="#B0BEC5" rx="15" />
+    <rect x="18" y="135" width="134" height="3" fill="#90A4AE" rx="15" />
+    <rect x="18" y="160" width="134" height="3" fill="#B0BEC5" rx="15" />
+
+    <!-- Label Plate -->
+    <rect x="45" y="90" width="40" height="30" rx="3" fill="#FFFFFF" stroke="#90A4AE" stroke-width="1" />
+    <g transform="translate(48, 92) scale(0.38)">
+      <!-- Swastik Symbol -->
+      <g fill="none" stroke="#E64A19" stroke-width="6" stroke-linecap="round">
+        <path d="M 40,10 L 40,25 A 3,3 0 0,1 37,28 L 20,28" />
+        <path d="M 60,28 L 43,28 A 3,3 0 0,1 40,31 L 40,46" />
+      </g>
+      <text x="40" y="65" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" fill="#E64A19" text-anchor="middle">SWASTIK</text>
+    </g>
+  </g>
+</svg>

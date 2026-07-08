@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E64A19" />
+      <stop offset="100%" stop-color="#FF5722" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(10, 10)">
+    <!-- Stylized Modern Symbol -->
+    <path d="M 40,0 L 40,32 A 8,8 0 0,1 32,40 L 0,40" fill="none" stroke="url(#logo-grad)" stroke-width="10" stroke-linecap="round" />
+    <path d="M 80,40 L 48,40 A 8,8 0 0,1 40,48 L 40,80" fill="none" stroke="url(#logo-grad)" stroke-width="10" stroke-linecap="round" />
+    <path d="M 40,80 L 40,48 A 8,8 0 0,1 48,40 L 80,40" fill="none" stroke="url(#logo-grad)" stroke-width="10" stroke-linecap="round" transform="rotate(180, 40, 40)" />
+    <path d="M 0,40 L 32,40 A 8,8 0 0,1 40,32 L 40,0" fill="none" stroke="url(#logo-grad)" stroke-width="10" stroke-linecap="round" transform="rotate(180, 40, 40)" />
+    
+    <!-- Small dots for decorative swastik-style accent -->
+    <circle cx="22" cy="22" r="4.5" fill="#E64A19" />
+    <circle cx="58" cy="22" r="4.5" fill="#FF5722" />
+    <circle cx="22" cy="58" r="4.5" fill="#FF5722" />
+    <circle cx="58" cy="58" r="4.5" fill="#E64A19" />
+  </g>
+  
+  <!-- Text -->
+  <text x="110" y="44" font-family="'Outfit', 'Inter', 'Segoe UI', sans-serif" font-weight="800" font-size="28" fill="#1A1A1A" letter-spacing="1.5">SWASTIK</text>
+  <text x="110" y="74" font-family="'Outfit', 'Inter', 'Segoe UI', sans-serif" font-weight="600" font-size="16" fill="#666666" letter-spacing="4">ENTERPRISES</text>
+</svg>

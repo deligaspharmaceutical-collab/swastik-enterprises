@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="lam-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0F7FA" />
+      <stop offset="50%" stop-color="#80DEEA" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#00ACC1" stop-opacity="0.4" />
+    </linearGradient>
+    <linearGradient id="sub-orange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF5722" />
+      <stop offset="100%" stop-color="#E64A19" />
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="300" fill="#ECEFF1" />
+
+  <g transform="translate(40, 40)">
+    <!-- Substrate (Paper or Board) being laminated -->
+    <path d="M 20,180 L 280,140 L 340,200 L 80,240 Z" fill="url(#sub-orange)" />
+    
+    <!-- Lamination Film Layer (Hovering above and joining) -->
+    <path d="M 20,80 L 280,100 L 280,140 L 20,180 Z" fill="url(#lam-blue)" />
+    <path d="M 280,100 L 340,160 L 340,200 L 280,140 Z" fill="url(#lam-blue)" />
+    
+    <!-- Shiny glossy highlights across the film -->
+    <path d="M 50,110 L 240,125" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.6" />
+    <path d="M 80,95 L 260,110" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.8" />
+    <path d="M 290,120 L 325,155" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.6" />
+    
+    <!-- Rollers pressing the layers together -->
+    <!-- Top pressure roller -->
+    <g transform="translate(250, 60)">
+      <rect x="0" y="0" width="30" height="120" rx="15" fill="#37474F" opacity="0.9" transform="rotate(15)" />
+      <rect x="5" y="5" width="20" height="110" rx="10" fill="#78909C" opacity="0.8" transform="rotate(15)" />
+    </g>
+    
+    <!-- Bonding/Adhesive line where layers fuse -->
+    <path d="M 280,140 L 80,240" stroke="#FFD54F" stroke-width="4" stroke-dasharray="8,4" fill="none" />
+    
+    <!-- Sparkles indicating perfect bond and high gloss finish -->
+    <path d="M 120,200 L 125,205 L 120,210 L 115,205 Z" fill="#FFFFFF" />
+    <path d="M 200,165 L 203,168 L 200,171 L 197,168 Z" fill="#FFFFFF" />
+  </g>
+</svg>

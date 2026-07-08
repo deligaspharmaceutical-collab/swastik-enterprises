@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="shoe-leather" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4E342E" />
+      <stop offset="50%" stop-color="#2D1B18" />
+      <stop offset="100%" stop-color="#150A09" />
+    </linearGradient>
+    <linearGradient id="sole-color" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8D6E63" />
+      <stop offset="100%" stop-color="#5D4037" />
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="300" fill="#F5F5F5" />
+
+  <g transform="translate(40, 40)">
+    <!-- Shoe Sole shadow -->
+    <path d="M 40,210 Q 160,240 300,190 Q 240,230 40,215 Z" fill="#D7CCC8" />
+
+    <!-- Shoe Upper (Leather Body) -->
+    <path d="M 50,170 Q 70,80 150,90 Q 180,110 200,140 Q 250,150 290,165 Q 310,175 300,190 Q 230,195 170,195 Q 120,185 50,170 Z" fill="url(#shoe-leather)" />
+    
+    <!-- Shoe Tongue and Opening -->
+    <path d="M 120,110 Q 140,80 160,100 L 150,130 Z" fill="#3E2723" />
+    
+    <!-- Laces / Lace holes -->
+    <circle cx="140" cy="115" r="3" fill="#D7CCC8" />
+    <circle cx="150" cy="125" r="3" fill="#D7CCC8" />
+    <circle cx="160" cy="135" r="3" fill="#D7CCC8" />
+    
+    <path d="M 130,125 Q 140,115 150,125 Q 155,130 165,135" stroke="#A1887F" stroke-width="2" fill="none" stroke-linecap="round" />
+    <path d="M 135,115 L 148,127 M 145,123 L 158,135" stroke="#A1887F" stroke-width="2" fill="none" stroke-linecap="round" />
+
+    <!-- Shoe Sole (Rubber/Leather Sole) -->
+    <path d="M 50,170 Q 120,185 170,195 Q 230,195 300,190 Q 310,193 300,200 Q 230,205 170,203 Q 120,195 48,175 Z" fill="url(#sole-color)" />
+    
+    <!-- Orange Glue/Bonding Line (Highlighting the adhesive between sole and upper) -->
+    <path d="M 50,170 Q 120,185 170,195 Q 230,195 300,190" stroke="#FF5722" stroke-width="3.5" fill="none" stroke-linecap="round" />
+
+    <!-- Stitched leather details -->
+    <path d="M 80,140 Q 130,145 180,165" stroke="#8D6E63" stroke-width="1.5" stroke-dasharray="3,3" fill="none" />
+    <path d="M 220,150 Q 250,155 280,170" stroke="#8D6E63" stroke-width="1.5" stroke-dasharray="3,3" fill="none" />
+  </g>
+</svg>
