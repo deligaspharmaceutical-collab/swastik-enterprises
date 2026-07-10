@@ -6,36 +6,43 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import Products from "@/components/Products";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/ui/SmoothScroll";
+import ProductShowcase from "@/components/ui/ProductShowcase";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-white">
-      {/* Navigation Header */}
-      <Header />
-      
-      {/* Main Page Sections */}
-      <main className="flex-1">
-        {/* Hero Banner Section */}
-        <Hero />
+    <SmoothScroll>
+      <div className="flex min-h-screen flex-col bg-white">
+        {/* Navigation Header */}
+        <Header />
         
-        {/* Stats Counter Bar Section */}
-        <StatsBar />
-        
-        {/* Solutions for Every Industry Section */}
-        <Industries />
-        
-        {/* Built on Quality / Why Choose Us Section */}
-        <WhyChooseUs />
-        
-        {/* Our Products Section */}
-        <Products />
-        
-        {/* Call to Action Section */}
-        <CTA />
-      </main>
+        {/* Main Page Sections */}
+        <main className="flex-1">
+          {/* Hero Banner Section */}
+          <Hero />
+          
+          {/* Pinned horizontal Product Showcase */}
+          <ProductShowcase />
+          
+          {/* Stats Counter Bar Section */}
+          <StatsBar />
+          
+          {/* Solutions for Every Industry Section */}
+          <Industries />
+          
+          {/* Built on Quality / Why Choose Us Section */}
+          <WhyChooseUs />
+          
+          {/* Our Products Section */}
+          <Products />
+          
+          {/* Call to Action Section */}
+          <CTA />
+        </main>
 
-      {/* Footer Contact Details & Links */}
-      <Footer />
-    </div>
+        {/* Footer Contact Details & Links */}
+        <Footer />
+      </div>
+    </SmoothScroll>
   );
 }

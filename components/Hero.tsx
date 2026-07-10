@@ -35,7 +35,7 @@ export default function Hero() {
           {/* Call to Actions */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <Link
-              href="#products"
+              href="/products"
               className="flex items-center gap-2 rounded-full bg-brand-orange px-8 py-4 font-sans text-sm font-bold text-white transition-all duration-300 hover:bg-brand-orange-hover hover:shadow-lg hover:shadow-brand-orange/25"
             >
               Explore Products
@@ -43,7 +43,7 @@ export default function Hero() {
             </Link>
             
             <Link
-              href="#contact-us"
+              href="/contact"
               className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-8 py-4 font-sans text-sm font-bold text-brand-dark transition-all duration-300 hover:border-brand-orange hover:text-brand-orange hover:shadow-md"
             >
               Request a Sample

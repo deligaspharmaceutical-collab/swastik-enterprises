@@ -20,7 +20,7 @@ export default function CTA() {
           {/* Action Button */}
           <div className="w-full shrink-0 md:w-auto">
             <Link
-              href="#contact-us"
+              href="/contact"
               className="group flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-sans text-sm font-bold text-brand-orange shadow-lg transition-all duration-300 hover:bg-orange-50 hover:text-brand-orange-hover hover:shadow-xl md:w-auto"
             >
               Get in Touch

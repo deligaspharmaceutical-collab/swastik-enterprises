@@ -4,20 +4,20 @@ import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
   const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about-us" },
-    { name: "Products", href: "#products" },
-    { name: "Industries", href: "#industries" },
-    { name: "Why Us", href: "#why-us" },
-    { name: "Contact Us", href: "#contact-us" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Products", href: "/products" },
+    { name: "Industries", href: "/#industries" },
+    { name: "Why Us", href: "/#why-us" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   const productsList = [
-    { name: "Wood Adhesives", href: "#products-wood" },
-    { name: "Lamination Adhesives", href: "#products-lamination" },
-    { name: "Coatings", href: "#products-coatings" },
-    { name: "Heat Seal Coatings", href: "#products-heat-seal" },
-    { name: "Specialty Adhesives", href: "#products-specialty" },
+    { name: "Wood Adhesives", href: "/products#wood-adhesives" },
+    { name: "Lamination Adhesives", href: "/products#lamination-adhesives" },
+    { name: "Coatings", href: "/products#coatings" },
+    { name: "Heat Seal Coatings", href: "/products#heat-seal-coatings" },
+    { name: "Specialty Adhesives", href: "/products#specialty-adhesives" },
   ];
 
   const socialLinks = [
@@ -51,7 +51,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12">
           {/* Brand Info Column */}
           <div className="flex flex-col gap-6 lg:col-span-4">
-            <Link href="#home" className="inline-block">
+            <Link href="/" className="inline-block">
               {/* White Logo variant using filter invert on transparent PNG */}
               <div className="relative h-16 w-64 invert brightness-0">
                 <Image

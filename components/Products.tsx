@@ -8,36 +8,36 @@ export default function Products() {
       title: "Wood Adhesives",
       desc: "Strong bonding for all wood applications.",
       img: "/images/prod_wood.svg",
-      href: "#products-wood",
+      href: "/products#wood-adhesives",
     },
     {
       title: "Lamination Adhesives",
       desc: "High performance for lamination.",
       img: "/images/prod_lamination.svg",
-      href: "#products-lamination",
+      href: "/products#lamination-adhesives",
     },
     {
       title: "Coatings",
       desc: "Specialty coatings for every need.",
       img: "/images/prod_coatings.svg",
-      href: "#products-coatings",
+      href: "/products#coatings",
     },
     {
       title: "Heat Seal Coatings",
       desc: "Reliable performance under heat.",
       img: "/images/prod_heat_seal.svg",
-      href: "#products-heat-seal",
+      href: "/products#heat-seal-coatings",
     },
     {
       title: "Specialty Adhesives",
       desc: "Customized solutions for specific applications.",
       img: "/images/prod_specialty.svg",
-      href: "#products-specialty",
+      href: "/products#specialty-adhesives",
     },
   ];
 
   return (
-    <section id="products" className="w-full bg-brand-light-gray py-16 md:py-24">
+    <section id="products-catalog" className="w-full bg-brand-light-gray py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         {/* Section Header */}
         <div className="mb-12 flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
