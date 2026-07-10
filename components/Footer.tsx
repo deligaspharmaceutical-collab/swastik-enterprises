@@ -52,10 +52,10 @@ export default function Footer() {
           {/* Brand Info Column */}
           <div className="flex flex-col gap-6 lg:col-span-4">
             <Link href="#home" className="inline-block">
-              {/* White Logo variant using filter invert */}
-              <div className="relative h-12 w-48 invert brightness-0">
+              {/* White Logo variant using filter invert on transparent PNG */}
+              <div className="relative h-16 w-64 invert brightness-0">
                 <Image
-                  src="/images/logo.svg"
+                  src="/images/logo-final.png"
                   alt="Swastik Enterprises Logo"
                   fill
                   className="object-contain"

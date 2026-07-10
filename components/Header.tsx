@@ -19,12 +19,12 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-12">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 md:px-12">
         {/* Logo */}
-        <Link href="#home" className="flex items-center gap-2">
-          <div className="relative h-12 w-48 md:w-56">
+        <Link href="#home" className="flex items-center">
+          <div className="relative h-20 w-52 md:w-72" >
             <Image
-              src="/images/logo.svg"
+              src="/images/logo-final.png"
               alt="Swastik Enterprises Logo"
               fill
               className="object-contain"
