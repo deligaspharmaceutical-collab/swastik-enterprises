@@ -34,11 +34,11 @@ export default function AboutPage() {
   return (
     <SmoothScroll>
       <div className="flex min-h-screen flex-col bg-white">
-        <Header />
+        <Header darkHero />
 
         <main className="flex-1">
           {/* Hero Banner Section */}
-          <section className="relative overflow-hidden bg-brand-dark py-20 text-white md:py-32">
+          <section className="relative overflow-hidden bg-brand-dark pt-32 pb-20 text-white md:pt-44 md:pb-32">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,87,34,0.15),transparent_50%)]" />
             <div className="mx-auto max-w-7xl px-6 md:px-12 relative z-10">
               <div className="max-w-3xl">

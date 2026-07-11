@@ -124,13 +124,13 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative w-full overflow-hidden bg-[radial-gradient(circle_at_30%_30%,#FFDCD0_0%,#FFF5F0_50%,#FFFFFF_100%)] pt-28 md:pt-32 pb-16 md:pb-24">
+    <section id="home" className="relative w-full overflow-hidden bg-[radial-gradient(circle_at_30%_30%,#FFDCD0_0%,#FFF5F0_50%,#FFFFFF_100%)] pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 md:pb-24">
       {/* Background soft geometric shape */}
       <div className="absolute right-0 top-0 -z-10 h-[600px] w-[600px] rounded-full bg-brand-light-gray opacity-70 blur-3xl" />
 
-      <div className="mx-auto flex max-w-7xl flex-col items-center px-6 text-center md:px-12">
+      <div className="mx-auto flex max-w-7xl flex-col items-center px-4 sm:px-6 text-center md:px-12">
         {/* Main Visual Container */}
-        <div className="relative z-0 w-full max-w-6xl my-4 md:my-8 flex items-center justify-center min-h-[320px] sm:min-h-[400px] md:min-h-[350px] lg:min-h-[300px]">
+        <div className="relative z-0 w-full max-w-6xl my-2 sm:my-4 md:my-8 flex items-center justify-center min-h-[310px] sm:min-h-[380px] md:min-h-[350px] lg:min-h-[300px]">
           {/* Background Text "SW" on left */}
           <div className="absolute left-[1%] lg:left-[2%] top-[45%] -translate-y-1/2 -z-10 pointer-events-none select-none">
             <span className="font-montserrat font-semibold text-[24vw] md:text-[18vw] lg:text-[20vw] tracking-[-0.04em] text-transparent bg-clip-text bg-gradient-to-br from-[#FFA07A] via-[#FF5722] to-[#B71C1C] opacity-95 select-none leading-none uppercase">
@@ -146,7 +146,7 @@ export default function Hero() {
           </div>
 
           {/* Central Image: Can + Smoke (Transparent PNG) */}
-          <div className="relative w-[300px] sm:w-[380px] md:w-[420px] lg:w-[480px] xl:w-[540px] aspect-[1306/1204] z-10 animate-float">
+          <div className="relative w-[300px] sm:w-[360px] md:w-[420px] lg:w-[480px] xl:w-[540px] aspect-[1306/1204] z-10 animate-float">
             <Image
               src="/images/swastik-product-image.png"
               alt="Swastik Enterprises Lamination Adhesive"
@@ -178,17 +178,17 @@ export default function Hero() {
         </div>
 
         {/* Floating Badges - Mobile & Tablet Grid (Hidden on Desktop) */}
-        <div className="mt-6 mb-8 grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-4xl lg:hidden">
+        <div className="mt-4 mb-6 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-4xl lg:hidden px-1">
           {badges.map((badge) => {
             const Icon = badge.icon;
             return (
-              <div key={badge.id} className="flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-3.5 shadow-sm">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-brand-orange">
-                  <Icon className="h-5 w-5" />
+              <div key={badge.id} className="flex items-center gap-2.5 sm:gap-3 rounded-xl border border-gray-100 bg-white p-3 sm:p-3.5 shadow-sm">
+                <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-brand-orange">
+                  <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-display text-sm font-bold text-brand-dark leading-tight">{badge.title}</h4>
-                  <p className="font-body text-xs text-gray-400 leading-tight mt-0.5">{badge.desc}</p>
+                  <h4 className="font-display text-xs sm:text-sm font-bold text-brand-dark leading-tight">{badge.title}</h4>
+                  <p className="font-body text-[10px] sm:text-xs text-gray-400 leading-tight mt-0.5">{badge.desc}</p>
                 </div>
               </div>
             );
@@ -196,10 +196,10 @@ export default function Hero() {
         </div>
 
         {/* Explore Our Products Button */}
-        <div className="flex justify-center">
+        <div className="flex justify-center w-full px-1">
           <Link
             href="/products"
-            className="group flex items-center gap-3 rounded-full bg-brand-orange px-8 py-4 font-sans text-base font-bold text-white transition-all duration-300 hover:bg-brand-orange-hover hover:shadow-lg hover:shadow-brand-orange/25"
+            className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-brand-orange px-8 py-3.5 sm:py-4 font-sans text-sm sm:text-base font-bold text-white transition-all duration-300 hover:bg-brand-orange-hover hover:shadow-lg hover:shadow-brand-orange/25"
           >
             Explore Our Products
             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white transition-transform duration-300 group-hover:translate-x-1">

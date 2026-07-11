@@ -6,7 +6,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X } from "lucide-react";
 
-export default function Header() {
+interface HeaderProps {
+  /** Set to true when the page hero behind the header is dark (e.g. About, Products, Contact).
+   *  This makes nav text white in the transparent/unscrolled state so it stays readable. */
+  darkHero?: boolean;
+}
+
+export default function Header({ darkHero = false }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,40 +47,56 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "Products", href: "/products" },
-    { name: "Industries", href: "/#industries" },
-    { name: "Why Us", href: "/#why-us" },
+    { name: "Industries", href: "/industries" },
+    { name: "Why Us", href: "/why-us" },
     { name: "Contact Us", href: "/contact" },
   ];
 
   const isActive = (href: string) => {
-    if (href.startsWith("/#")) {
-      return pathname === "/";
-    }
-    return pathname === href;
+    return pathname === href || (href !== "/" && pathname.startsWith(href));
   };
+
+  // When transparent (unscrolled): dark pages → white text, light pages → dark text
+  const transparentTextClass = darkHero ? "text-white" : "text-brand-dark";
+  const transparentHoverClass = darkHero
+    ? "hover:text-orange-300"
+    : "hover:text-brand-orange";
+  const transparentHamburgerClass = darkHero
+    ? "text-white hover:bg-white/10"
+    : "text-brand-dark hover:bg-white/20";
+
+  // When scrolled: always use dark text (light peach background)
+  const scrolledTextClass = "text-brand-dark";
+  const scrolledHoverClass = "hover:text-brand-orange";
+  const scrolledHamburgerClass = "text-brand-dark hover:bg-orange-50";
+
+  const navTextClass = isScrolled || mobileMenuOpen ? scrolledTextClass : transparentTextClass;
+  const navHoverClass = isScrolled || mobileMenuOpen ? scrolledHoverClass : transparentHoverClass;
+  const hamburgerClass = isScrolled || mobileMenuOpen ? scrolledHamburgerClass : transparentHamburgerClass;
 
   return (
     <header 
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 z-[60] w-full transition-all duration-300 ease-in-out ${
         visible ? "translate-y-0" : "-translate-y-full"
       } ${
         isScrolled || mobileMenuOpen
           ? "bg-gradient-to-r from-[#FFDCD0]/90 via-white/90 to-[#FFF0EA]/90 backdrop-blur-md shadow-sm border-b border-orange-100/20 py-2" 
-          : "bg-transparent py-4"
+          : darkHero
+            ? "bg-black/20 backdrop-blur-sm py-4"
+            : "bg-transparent py-4"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 md:px-12">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 md:px-12">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <div className="relative h-20 w-52 md:w-72" >
+          <div className="relative h-14 w-40 sm:h-16 sm:w-48 md:h-20 md:w-64">
             <Image
               src="/images/logo-final.png"
               alt="Swastik Enterprises Logo"
               fill
-              className="object-contain"
+              className="object-contain object-left"
               priority
             />
           </div>
@@ -88,7 +110,7 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="group relative font-display text-sm font-semibold text-brand-dark transition-colors duration-200 hover:text-brand-orange"
+                className={`group relative font-display text-sm font-semibold transition-colors duration-200 ${navTextClass} ${navHoverClass}`}
               >
                 {link.name}
                 {active ? (
@@ -115,7 +137,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="rounded-lg p-2 text-brand-dark hover:bg-gray-50 lg:hidden"
+          className={`flex items-center justify-center rounded-lg p-2 transition-colors lg:hidden ${hamburgerClass}`}
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -124,26 +146,28 @@ export default function Header() {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-x-0 top-[81px] bottom-0 z-40 bg-white px-6 py-8 shadow-inner animate-fade-in-up lg:hidden">
-          <div className="flex flex-col gap-6">
+        <div className="absolute top-full inset-x-0 z-[60] bg-white px-6 py-8 shadow-2xl animate-fade-in-up lg:hidden overflow-y-auto max-h-[calc(100vh-64px)]">
+          <div className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="font-display text-lg font-bold text-brand-dark transition-colors hover:text-brand-orange border-b border-gray-50 pb-3"
+                className="flex items-center font-display text-lg font-bold text-brand-dark transition-colors hover:text-brand-orange border-b border-gray-100 py-4"
               >
                 {link.name}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 rounded-full bg-brand-orange py-4 font-sans font-bold text-white transition-all hover:bg-brand-orange-hover"
-            >
-              Get in Touch
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="mt-6">
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-brand-orange py-4 font-sans font-bold text-white transition-all hover:bg-brand-orange-hover"
+              >
+                Get in Touch
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       )}
