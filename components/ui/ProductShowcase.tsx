@@ -6,8 +6,37 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLenis } from "@/components/ui/SmoothScroll";
+import { Megaphone, Globe, Monitor, Smartphone } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Define floating badges configuration
+const badges = [
+  {
+    id: "experience",
+    title: "11+",
+    desc: "Years of Excellence",
+    icon: Megaphone,
+  },
+  {
+    id: "happy-clients",
+    title: "1000+",
+    desc: "Happy Clients",
+    icon: Monitor,
+  },
+  {
+    id: "products",
+    title: "10+",
+    desc: "Products",
+    icon: Globe,
+  },
+  {
+    id: "pan-india",
+    title: "PAN India",
+    desc: "Serving Across India",
+    icon: Smartphone,
+  }
+];
 
 // Define the product details structure
 interface Product {
@@ -227,8 +256,84 @@ export default function ProductShowcase() {
           className="absolute inset-0 bg-[#FF5722] z-0 transition-colors duration-500"
         />
 
-        {/* Top Header Placeholder (To align layout with fixed navbar) */}
-        <div className="h-24 sm:h-32 z-10 select-none pointer-events-none" />
+        {/* Section Header & Landing Zones - Desktop Only */}
+        <div className="hidden lg:flex justify-between items-center gap-6 w-full max-w-7xl mx-auto z-10 px-4 mt-4 mb-2 shrink-0">
+          {/* Left Badges Group (Experience, Happy Clients) */}
+          <div className="flex gap-4 justify-end flex-1">
+            {badges.slice(0, 2).map((badge) => {
+              const Icon = badge.icon;
+              return (
+                <div
+                  key={badge.id}
+                  id={`badge-landing-${badge.id}`}
+                  className="relative rounded-xl border border-dashed border-white/20 bg-white/5 w-full max-w-[200px] min-w-[160px] h-[72px] flex items-center shrink-0"
+                >
+                  {/* Real Landing Badge (Fades in) */}
+                  <div
+                    id={`badge-landing-real-${badge.id}`}
+                    className="absolute inset-0 flex items-center gap-3 rounded-xl border border-white/10 bg-white/10 backdrop-blur-md p-3.5 shadow-lg opacity-0 pointer-events-auto"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10 text-white">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div className="text-left">
+                      <h4 className="font-display text-xs font-semibold text-white leading-tight">{badge.title}</h4>
+                      <p className="font-body text-[10px] text-white/70 leading-tight mt-0.5">{badge.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Centered Heading */}
+          <div className="text-center shrink-0 px-6 max-w-sm">
+            <span className="font-display text-xs font-extrabold tracking-wider text-white/80 uppercase block">
+              OUR PRODUCTS
+            </span>
+            <h2 className="mt-1.5 font-display text-3xl sm:text-4xl font-black tracking-tight text-white uppercase leading-tight">
+              WHAT WE SERVE
+            </h2>
+          </div>
+
+          {/* Right Badges Group (Products, PAN India) */}
+          <div className="flex gap-4 justify-start flex-1">
+            {badges.slice(2, 4).map((badge) => {
+              const Icon = badge.icon;
+              return (
+                <div
+                  key={badge.id}
+                  id={`badge-landing-${badge.id}`}
+                  className="relative rounded-xl border border-dashed border-white/20 bg-white/5 w-full max-w-[200px] min-w-[160px] h-[72px] flex items-center shrink-0"
+                >
+                  {/* Real Landing Badge (Fades in) */}
+                  <div
+                    id={`badge-landing-real-${badge.id}`}
+                    className="absolute inset-0 flex items-center gap-3 rounded-xl border border-white/10 bg-white/10 backdrop-blur-md p-3.5 shadow-lg opacity-0 pointer-events-auto"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10 text-white">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div className="text-left">
+                      <h4 className="font-display text-xs font-semibold text-white leading-tight">{badge.title}</h4>
+                      <p className="font-body text-[10px] text-white/70 leading-tight mt-0.5">{badge.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Mobile Header (Fallback since grid is hidden on mobile/tablet) */}
+        <div className="mb-4 flex flex-col items-center text-center lg:hidden z-10 mt-4 shrink-0">
+          <span className="font-display text-[10px] font-extrabold tracking-wider text-white/85 uppercase">
+            OUR PRODUCTS
+          </span>
+          <h2 className="mt-1 font-display text-2xl font-black tracking-tight text-white uppercase leading-tight">
+            WHAT WE SERVE
+          </h2>
+        </div>
 
         {/* Interactive Layout Content Grid */}
         <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center justify-between my-auto w-full z-10 max-w-7xl mx-auto px-4">

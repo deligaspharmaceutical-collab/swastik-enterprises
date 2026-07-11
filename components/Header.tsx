@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,7 +8,37 @@ import { ArrowRight, Menu, X } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const lastScrollY = useRef(0);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      setIsScrolled(currentScrollY > 20);
+
+      // If mobile menu is open, don't hide the navbar
+      if (mobileMenuOpen) return;
+
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        // Scrolling down and past navbar threshold: hide
+        setVisible(false);
+      } else {
+        // Scrolling up or near top: show
+        setVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Run once initially to capture initial position
+    handleScroll();
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -27,7 +57,15 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md">
+    <header 
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ease-in-out ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      } ${
+        isScrolled || mobileMenuOpen
+          ? "bg-gradient-to-r from-[#FFDCD0]/90 via-white/90 to-[#FFF0EA]/90 backdrop-blur-md shadow-sm border-b border-orange-100/20 py-2" 
+          : "bg-transparent py-4"
+      }`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 md:px-12">
         {/* Logo */}
         <Link href="/" className="flex items-center">

@@ -3,6 +3,8 @@
 @theme {
   --font-display: var(--font-ginto), "Ginto", "Ginto Nord", var(--font-outfit), sans-serif;
   --font-body: var(--font-ginto), "Ginto", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-alata: var(--font-alata), sans-serif;
+  --font-gotham: "Gotham Bold", "Gotham", var(--font-montserrat), sans-serif;
   
   --color-brand-orange: #FF5722;
   --color-brand-orange-hover: #E64A19;

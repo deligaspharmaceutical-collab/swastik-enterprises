@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Outfit, Inter, Alata, Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -13,6 +13,18 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const alata = Alata({
+  variable: "--font-alata",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const ginto = localFont({
@@ -35,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${inter.variable} ${ginto.variable} h-full antialiased`}
+      className={`${outfit.variable} ${inter.variable} ${ginto.variable} ${alata.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body">{children}</body>
     </html>
