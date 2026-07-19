@@ -55,7 +55,7 @@ const products: Product[] = [
     name: "Wood Adhesives",
     category: "Bonding & Joints",
     desc: "High-performance water-based emulsion engineered for maximum strength and fast curing. Perfect for premium wood assembly and structural carpentry.",
-    image: "/images/prod_wood.svg",
+    image: "/images/wood-adhesive.png",
     color: "#FF5722", // Swastik Orange
     formulation: "Water-Based Emulsion",
     strength: "High Tack",
@@ -65,37 +65,17 @@ const products: Product[] = [
     name: "Lamination Adhesives",
     category: "Flexible Laminates",
     desc: "Specialized synthetic resins designed for smooth, bubble-free lamination on diverse substrates. Delivers durable moisture and temperature resistance.",
-    image: "/images/prod_lamination.svg",
+    image: "/images/lamination-adhesive.png",
     color: "#D84315", // Deep Rust Orange
     formulation: "Synthetic Resin",
     strength: "Extra Strong",
     curingTime: "Immediate",
   },
   {
-    name: "Coatings",
-    category: "Protective Finishes",
-    desc: "Industrial-grade liquid coatings providing a resilient barrier against abrasions, chemical attacks, and environmental wear. Ideal for heavy-duty applications.",
-    image: "/images/prod_coatings.svg",
-    color: "#1A1A1A", // Charcoal Black
-    formulation: "Liquid Polymer",
-    strength: "Protective Shield",
-    curingTime: "12-24 Hours",
-  },
-  {
-    name: "Heat Seal Coatings",
-    category: "Thermal Packaging",
-    desc: "Advanced hot-melt thermal coatings engineered for airtight seals under heat and pressure. Trusted widely in flexible packaging and lid seals.",
-    image: "/images/prod_heat_seal.svg",
-    color: "#777777", // Steel Gray
-    formulation: "Thermal Polymer",
-    strength: "Heat Resistant",
-    curingTime: "Instant Seal",
-  },
-  {
     name: "Specialty Adhesives",
     category: "Custom Formulations",
     desc: "Bespoke adhesive formulations engineered for unique industrial requirements and structural engineering projects. Exceptional shear resistance.",
-    image: "/images/prod_specialty.svg",
+    image: "/images/heat-seal-coatings.png",
     color: "#E64A19", // Vibrant Rust
     formulation: "Tailored Resin Blend",
     strength: "High Shear",
@@ -336,10 +316,10 @@ export default function ProductShowcase() {
         </div>
 
         {/* Interactive Layout Content Grid */}
-        <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center justify-between my-auto w-full z-10 max-w-7xl mx-auto px-4">
+        <div className="relative grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center justify-between my-auto w-full z-10 max-w-7xl mx-auto px-4">
 
           {/* Left Column: Product Details Stack */}
-          <div className="md:col-span-3 flex items-center min-h-[300px] relative">
+          <div className="md:col-span-3 flex items-center justify-center md:justify-start min-h-[160px] md:min-h-[300px] relative text-center md:text-left">
             {products.map((product, index) => (
               <div
                 key={index}
@@ -349,23 +329,23 @@ export default function ProductShowcase() {
                   userSelect: activeIndex === index ? "auto" : "none",
                 }}
               >
-                <span className="font-display font-semibold tracking-widest text-xs sm:text-sm text-white/80 mb-2 uppercase">
+                <span className="font-display font-semibold tracking-widest text-[10px] sm:text-xs md:text-sm text-white/80 mb-1 md:mb-2 uppercase">
                   {product.category}
                 </span>
-                <h2 className="text-3xl sm:text-5xl font-black leading-tight tracking-tight uppercase mb-4 text-white font-display">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-black leading-tight tracking-tight uppercase mb-2 md:mb-4 text-white font-display">
                   {product.name}
                 </h2>
-                <p className="font-body text-xs sm:text-sm text-white/85 leading-relaxed max-w-sm mb-6">
+                <p className="font-body text-[11px] sm:text-xs md:text-sm text-white/85 leading-relaxed max-w-sm mb-4 md:mb-6 mx-auto md:mx-0">
                   {product.desc}
                 </p>
-                <div className="flex gap-4">
-                  <div className="border border-white/20 bg-white/10 backdrop-blur-md py-2 px-4 rounded-lg flex flex-col">
-                    <span className="text-[10px] uppercase text-white/70">Strength</span>
-                    <span className="font-bold text-sm text-white font-display">{product.strength}</span>
+                <div className="flex gap-3 justify-center md:justify-start">
+                  <div className="border border-white/20 bg-white/10 backdrop-blur-md py-1 px-3 md:py-2 md:px-4 rounded-lg flex flex-col">
+                    <span className="text-[9px] uppercase text-white/70">Strength</span>
+                    <span className="font-bold text-xs md:text-sm text-white font-display">{product.strength}</span>
                   </div>
-                  <div className="border border-white/20 bg-white/10 backdrop-blur-md py-2 px-4 rounded-lg flex flex-col">
-                    <span className="text-[10px] uppercase text-white/70">Curing Time</span>
-                    <span className="font-bold text-sm text-white font-display">{product.curingTime}</span>
+                  <div className="border border-white/20 bg-white/10 backdrop-blur-md py-1 px-3 md:py-2 md:px-4 rounded-lg flex flex-col">
+                    <span className="text-[9px] uppercase text-white/70">Curing Time</span>
+                    <span className="font-bold text-xs md:text-sm text-white font-display">{product.curingTime}</span>
                   </div>
                 </div>
               </div>
@@ -373,21 +353,21 @@ export default function ProductShowcase() {
           </div>
 
           {/* Center Column: Product Bottle Stack */}
-          <div className="md:col-span-6 flex flex-col items-center justify-center relative min-h-[320px] sm:min-h-[500px]">
-            <div className="float-wrapper relative w-full h-72 sm:h-[420px] flex justify-center">
+          <div className="md:col-span-6 flex flex-col items-center justify-center relative min-h-[220px] md:min-h-[500px]">
+            <div className="float-wrapper relative w-full h-48 md:h-[420px] flex justify-center">
               {/* Product Shadow under the container */}
-              <div className="absolute bottom-[-15px] sm:bottom-[-20px] w-48 sm:w-64 h-6 bg-black/25 blur-md rounded-[50%] z-0 scale-y-[0.3]" />
+              <div className="absolute bottom-[-10px] md:bottom-[-20px] w-32 md:w-64 h-4 md:h-6 bg-black/25 blur-md rounded-[50%] z-0 scale-y-[0.3]" />
 
               {products.map((product, index) => (
                 <div
                   key={index}
-                  className="product-bottle absolute top-0 left-1/2 -translate-x-1/2 w-48 h-72 sm:w-72 sm:h-[420px] z-10"
+                  className="product-bottle absolute top-0 left-1/2 -translate-x-1/2 w-32 h-48 md:w-72 md:h-[420px] z-10"
                 >
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
-                    sizes="(max-width: 640px) 192px, 288px"
+                    sizes="(max-width: 768px) 128px, 288px"
                     priority
                     className="object-contain"
                   />
@@ -397,21 +377,21 @@ export default function ProductShowcase() {
           </div>
 
           {/* Right Column: Custom Selector Interface */}
-          <div className="md:col-span-3 flex flex-col items-center md:items-end gap-8 text-center md:text-right">
+          <div className="md:col-span-3 flex flex-row md:flex-col items-center md:items-end justify-center md:justify-end gap-6 md:gap-8 text-center md:text-right w-full mt-4 md:mt-0">
 
             {/* Color/Slide Selectors */}
-            <div className="flex flex-col items-center md:items-end gap-3 pointer-events-auto">
-              <span className="font-display text-xs tracking-wider uppercase text-zinc-200">
+            <div className="flex flex-col items-center md:items-end gap-1.5 md:gap-3 pointer-events-auto">
+              <span className="font-display text-[10px] md:text-xs tracking-wider uppercase text-zinc-200">
                 Choose Product
               </span>
-              <div className="flex md:flex-col gap-3.5 mt-1">
+              <div className="flex flex-row md:flex-col gap-2.5 md:gap-3.5 mt-0.5 md:mt-1">
                 {products.map((product, index) => (
                   <button
                     key={index}
                     onClick={() => handleDotClick(index)}
-                    className={`w-6 h-6 rounded-full border-2 transition-all duration-300 cursor-pointer ${activeIndex === index
-                        ? "border-white ring-2 ring-white/60 scale-125 shadow-lg"
-                        : "border-transparent opacity-60 hover:opacity-100 hover:scale-105"
+                    className={`w-5 h-5 md:w-6 md:h-6 rounded-full border-2 transition-all duration-300 cursor-pointer ${activeIndex === index
+                      ? "border-white ring-2 ring-white/60 scale-110 md:scale-125 shadow-lg"
+                      : "border-transparent opacity-60 hover:opacity-100 hover:scale-105"
                       }`}
                     style={{ backgroundColor: product.color }}
                     title={product.name}
@@ -422,12 +402,12 @@ export default function ProductShowcase() {
             </div>
 
             {/* Formulation Selector */}
-            <div className="flex flex-col items-center md:items-end gap-3 pointer-events-auto">
-              <span className="font-display text-xs tracking-wider uppercase text-zinc-200">
+            <div className="flex flex-col items-center md:items-end gap-1.5 md:gap-3 pointer-events-auto">
+              <span className="font-display text-[10px] md:text-xs tracking-wider uppercase text-zinc-200">
                 Formulation
               </span>
-              <div className="flex gap-2.5 mt-1">
-                <button className="border border-white/20 bg-white/10 font-sans font-semibold text-xs tracking-wide py-2 px-4 rounded-full">
+              <div className="flex gap-2.5 mt-0.5 md:mt-1">
+                <button className="border border-white/20 bg-white/10 font-sans font-semibold text-[10px] md:text-xs tracking-wide py-1.5 px-3 md:py-2 md:px-4 rounded-full">
                   {activeProduct.formulation}
                 </button>
               </div>

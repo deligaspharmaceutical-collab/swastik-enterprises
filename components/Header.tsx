@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X, ChevronDown } from "lucide-react";
 
 interface HeaderProps {
   /** Set to true when the page hero behind the header is dark (e.g. About, Products, Contact).
@@ -14,6 +14,7 @@ interface HeaderProps {
 
 export default function Header({ darkHero = false }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileProductsExpanded, setMobileProductsExpanded] = useState(false);
   const [visible, setVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const lastScrollY = useRef(0);
@@ -52,6 +53,16 @@ export default function Header({ darkHero = false }: HeaderProps) {
     { name: "Industries", href: "/industries" },
     { name: "Why Us", href: "/why-us" },
     { name: "Contact Us", href: "/contact" },
+  ];
+
+  const productSubmenu = [
+    { name: "Wood Working Adhesive", href: "/products/woodworking-adhesive" },
+    { name: "Lamination Adhesive", href: "/products/lamination-adhesive" },
+    { name: "Printing Solution", href: "/products/printing-solution" },
+    { name: "Packing Industry", href: "/products/packing-industry" },
+    { name: "Biodegradable Food Grade Coatings", href: "/products/biodegradable-food-grade-coatings" },
+    { name: "Textile Industry", href: "/products/textile-industry" },
+    { name: "Other Speciality Chemicals", href: "/products/other-speciality-chemicals" },
   ];
 
   const isActive = (href: string) => {
@@ -106,6 +117,42 @@ export default function Header({ darkHero = false }: HeaderProps) {
         <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => {
             const active = isActive(link.href);
+            if (link.name === "Products") {
+              return (
+                <div
+                  key={link.name}
+                  className="group relative py-4"
+                >
+                  <Link
+                    href={link.href}
+                    className={`flex items-center gap-1 font-display text-sm font-semibold transition-colors duration-200 ${navTextClass} ${navHoverClass}`}
+                  >
+                    {link.name}
+                    <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                    {active ? (
+                      <span className="absolute bottom-2.5 left-0 h-0.5 w-full bg-brand-orange rounded-full" />
+                    ) : (
+                      <span className="absolute bottom-2.5 left-0 h-0.5 w-0 bg-brand-orange rounded-full transition-all duration-300 group-hover:w-full" />
+                    )}
+                  </Link>
+                  
+                  {/* Dropdown Menu */}
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-64 pointer-events-none opacity-0 translate-y-2 transition-all duration-350 ease-out group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-y-0 z-50">
+                    <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-orange-100/30 py-3 px-2 flex flex-col gap-1">
+                      {productSubmenu.map((sub) => (
+                        <Link
+                          key={sub.name}
+                          href={sub.href}
+                          className="block rounded-lg px-4 py-2.5 font-display text-xs font-semibold text-brand-dark transition-all duration-200 hover:bg-orange-50 hover:text-brand-orange"
+                        >
+                          {sub.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
             return (
               <Link
                 key={link.name}
@@ -148,16 +195,50 @@ export default function Header({ darkHero = false }: HeaderProps) {
       {mobileMenuOpen && (
         <div className="absolute top-full inset-x-0 z-[60] bg-white px-6 py-8 shadow-2xl animate-fade-in-up lg:hidden overflow-y-auto max-h-[calc(100vh-64px)]">
           <div className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center font-display text-lg font-bold text-brand-dark transition-colors hover:text-brand-orange border-b border-gray-100 py-4"
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              if (link.name === "Products") {
+                return (
+                  <div key={link.name} className="border-b border-gray-100 py-4">
+                    <button
+                      onClick={() => setMobileProductsExpanded(!mobileProductsExpanded)}
+                      className="flex w-full items-center justify-between font-display text-lg font-bold text-brand-dark transition-colors hover:text-brand-orange"
+                    >
+                      <span>{link.name}</span>
+                      <ChevronDown className={`h-5 w-5 transition-transform duration-350 ${mobileProductsExpanded ? "rotate-180 text-brand-orange" : "text-gray-400"}`} />
+                    </button>
+                    <div className={`mt-2 flex flex-col gap-1 overflow-hidden transition-all duration-300 ease-in-out ${mobileProductsExpanded ? "max-h-[400px] opacity-100 py-2" : "max-h-0 opacity-0"}`}>
+                      {productSubmenu.map((sub) => (
+                        <Link
+                          key={sub.name}
+                          href={sub.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block rounded-lg px-4 py-2 font-display text-sm font-semibold text-zinc-600 hover:text-brand-orange hover:bg-orange-50/50"
+                        >
+                          {sub.name}
+                        </Link>
+                      ))}
+                      <Link
+                        href="/products"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block rounded-lg px-4 py-2 font-display text-sm font-extrabold text-brand-orange hover:bg-orange-50"
+                      >
+                        All Products &rarr;
+                      </Link>
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center font-display text-lg font-bold text-brand-dark transition-colors hover:text-brand-orange border-b border-gray-100 py-4"
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
             <div className="mt-6">
               <Link
                 href="/contact"

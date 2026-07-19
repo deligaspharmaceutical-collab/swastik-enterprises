@@ -7,31 +7,19 @@ export default function Products() {
     {
       title: "Wood Adhesives",
       desc: "Strong bonding for all wood applications.",
-      img: "/images/prod_wood.svg",
+      img: "/images/wood-adhesive.png",
       href: "/products#wood-adhesives",
     },
     {
       title: "Lamination Adhesives",
       desc: "High performance for lamination.",
-      img: "/images/prod_lamination.svg",
+      img: "/images/lamination-adhesive.png",
       href: "/products#lamination-adhesives",
-    },
-    {
-      title: "Coatings",
-      desc: "Specialty coatings for every need.",
-      img: "/images/prod_coatings.svg",
-      href: "/products#coatings",
-    },
-    {
-      title: "Heat Seal Coatings",
-      desc: "Reliable performance under heat.",
-      img: "/images/prod_heat_seal.svg",
-      href: "/products#heat-seal-coatings",
     },
     {
       title: "Specialty Adhesives",
       desc: "Customized solutions for specific applications.",
-      img: "/images/prod_specialty.svg",
+      img: "/images/heat-seal-coatings.png",
       href: "/products#specialty-adhesives",
     },
   ];
@@ -55,7 +43,7 @@ export default function Products() {
         </div>
 
         {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {productList.map((prod, idx) => (
             <div
               key={idx}

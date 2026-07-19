@@ -23,7 +23,7 @@ const detailedProducts: ProductDetail[] = [
     title: "Wood Adhesives",
     category: "Bonding & Carpentry",
     desc: "Premium water-based emulsion designed for woodworking, joinery, and structural wood assembly. Provides high tack and rapid setting times.",
-    img: "/images/prod_wood.svg",
+    img: "/images/wood-adhesive.png",
     href: "/contact?inquiry=wood-adhesives",
     features: [
       "Water-resistant formulation (D3 standard)",
@@ -41,7 +41,7 @@ const detailedProducts: ProductDetail[] = [
     title: "Lamination Adhesives",
     category: "Flexible субстраты & Films",
     desc: "High-performance synthetic resin adhesives optimized for dry lamination, paper-to-film, and film-to-film conversions. Offers exceptional print clarity and bonding.",
-    img: "/images/prod_lamination.svg",
+    img: "/images/lamination-adhesive.png",
     href: "/contact?inquiry=lamination-adhesives",
     features: [
       "Superior bonding on polyester, BOPP, and metallized films",
@@ -56,46 +56,10 @@ const detailedProducts: ProductDetail[] = [
     ],
   },
   {
-    title: "Coatings",
-    category: "Surface Protection & Varnishes",
-    desc: "Industrial-grade liquid polymer coatings and overprint varnishes that shield packaging substrates from physical abrasions, moisture, and chemical contact.",
-    img: "/images/prod_coatings.svg",
-    href: "/contact?inquiry=coatings",
-    features: [
-      "High gloss or deep matte finishes available",
-      "Superior scuff and rub resistance",
-      "Fast drying speeds on flexo/gravure presses",
-      "FDA compliant for indirect food contact packaging",
-    ],
-    specs: [
-      { label: "Dry Weight", value: "3.5 - 5.0 gsm" },
-      { label: "Drying Temperature", value: "60°C - 80°C" },
-      { label: "Diluent", value: "Water / IPA Blend" },
-    ],
-  },
-  {
-    title: "Heat Seal Coatings",
-    category: "Packaging Seals",
-    desc: "Heat-activated polymer coatings engineered to create airtight, peelable, or destructive seals on paper, foil, and plastic structures upon application of heat.",
-    img: "/images/prod_heat_seal.svg",
-    href: "/contact?inquiry=heat-seal-coatings",
-    features: [
-      "Consistent seal strength with clean peel profile",
-      "Low sealing temperature initiation for high-speed lines",
-      "Excellent hot tack performance",
-      "Grease and moisture barrier options available",
-    ],
-    specs: [
-      { label: "Sealing Temp", value: "120°C - 160°C" },
-      { label: "Dwell Time", value: "0.5 - 1.0 seconds" },
-      { label: "Substrates", value: "Alu Foil, PET, Paper, PVC" },
-    ],
-  },
-  {
     title: "Specialty Adhesives",
     category: "Custom Industrial Blends",
     desc: "Bespoke adhesive formulations tailored for specific industrial substrates and assembly requirements, including shoe manufacturing, labels, and automotive interiors.",
-    img: "/images/prod_specialty.svg",
+    img: "/images/heat-seal-coatings.png",
     href: "/contact?inquiry=specialty-adhesives",
     features: [
       "Custom viscosity and open time matching",

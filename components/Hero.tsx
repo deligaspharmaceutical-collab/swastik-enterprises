@@ -148,7 +148,7 @@ export default function Hero() {
           {/* Central Image: Can + Smoke (Transparent PNG) */}
           <div className="relative w-[300px] sm:w-[360px] md:w-[420px] lg:w-[480px] xl:w-[540px] aspect-[1306/1204] z-10 animate-float">
             <Image
-              src="/images/swastik-product-image.png"
+              src="/images/container.png"
               alt="Swastik Enterprises Lamination Adhesive"
               fill
               className="object-contain"
